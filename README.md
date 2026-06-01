@@ -1,4 +1,4 @@
-# JP Corporate — Dynamic IT Company Website
+# JP Corporate — Dynamic IT Company Website 
 
 A full-stack, CMS-driven corporate website for a Japanese IT company, with a chatbot (Groq), RAG knowledge base, real-time visitor analytics, and a complete admin dashboard.
 
