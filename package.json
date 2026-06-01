@@ -1,0 +1,26 @@
+{
+  "name": "jp-corporate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dynamic CMS-driven corporate website for a Japanese IT company",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n backend,frontend,rag -c blue,green,magenta \"npm:dev:backend\" \"npm:dev:frontend\" \"npm:dev:rag\"",
+    "dev:frontend": "npm --workspace frontend run dev",
+    "dev:backend": "npm --workspace backend run start:dev",
+    "dev:rag": "cd rag-service && python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "build": "npm --workspace backend run build && npm --workspace frontend run build",
+    "db:generate": "npm --workspace backend run db:generate",
+    "db:push": "npm --workspace backend run db:push",
+    "db:migrate": "npm --workspace backend run db:migrate",
+    "db:seed": "npm --workspace backend run db:seed",
+    "rag:sync": "npm --workspace backend run rag:sync",
+    "install:rag": "cd rag-service && python -m pip install -r requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
